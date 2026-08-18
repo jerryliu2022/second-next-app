@@ -1,3 +1,4 @@
+import Link from "next/link"
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -23,7 +24,24 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+			<nav style={{
+				display: "flex",
+				justifyContent: "center",   // 整体水平居中
+				gap: "48px",                 // 两个链接之间的间距
+				marginBottom: "40px",        // 导航和下方页面内容的距离
+				fontSize: "20px",            // 整体字号放大
+				fontWeight: 500,             // 字体粗细适中，更好看
+			  }}
+			>
+			
+			<Link href="/" style={{color:"red"}}>首页</Link>
+			<Link href="/about" style={{color:"green"}}>关于我们</Link>
+		</nav>
+		{/* 页面内容渲染区域 */}
+		<h2>服务端查数据 + 客户端交互演示</h2>
+		{children}
+	  </body>
     </html>
   );
 }
