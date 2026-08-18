@@ -1,3 +1,5 @@
+export const runtime = 'edge';
+
 type ParamsType = {
   page: string
 }
